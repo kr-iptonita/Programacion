@@ -1,0 +1,23 @@
+#Ejercicio1c
+#En cierta localidad donde habitan 5000 personas adultas. Se selecciona al azar una
+#muestra de tama˜no 100 y se le pregunta a cada persona seleccionada cu´al es su opini´on
+#con respecto a un proyecto municipal. Si se supone que en toda la localidad la mitad
+#de las personas adultas est´an a favor del proyecto y la otra mitad est´a en contra, ¿cu´al
+#es la probabilidad de obtener una mayor´ıa de 62 ´o m´as a favor del proyecto en dicha
+#muestra?
+
+Mayoria<-62
+TamanoMuestra<-100
+Pfavor<-Mayoria/TamanoMuestra
+Pcontra<-1-Pfavor
+Probabilidad<-1
+ProbInversa<-0
+TamanoFactoria<-factorial(TamanoMuestra)
+for(i in 0:(Mayoria-1)){
+    varaux<-TamanoMuestra-i
+    ProbInversa<-ProbInversa+(TamanoFactoria/(factorial(i)*(factorial(varaux))))*(Pfavor^i)*(Pcontra^(varaux))    
+    print(ProbInversa)
+}
+Probabilidad<-Probabilidad-ProbInversa
+print("Probabilidad")
+print(Probabilidad)

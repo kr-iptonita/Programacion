@@ -1,0 +1,192 @@
+---
+title: "Ejercicios R"
+author: "Carrasco Sánchez Mariana, García Hernández Salvador, Juárez Torres Carlos Alberto, Vega Gónzalez Pedro Rubén" 
+date: '16-Jun-2022'
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    collapsed: false
+    smooth_scroll: true
+    theme: darkly
+    highlight: zenburn
+    df_print: paged
+    code_folding: hide
+    rmd_file_path = gsub('"','', gsub('\\\\','/',readClipboard()))
+    rmarkdown::render(rmd_file_path)
+---
+
+A continuación se presentan los ejercicios de la parte de R
+
+# Ejercicio 1
+
+## Inciso a
+
+```{r}
+
+
+#La probabilidad de que una caja de 500 fusibles tenga a los m'as 25 fusibles defectuosos
+#si se sabe que el 3 % de los fusibles fabricados son defectuosos
+
+p<-3/100
+n<-500
+defectuosos<-25
+lambda <- n*p
+exponente<-exp(-lambda)
+#Distribuci'on de Poisson expresada como una suma tenemos:
+Probabilidad <- 0
+
+for (i in 0:defectuosos) {
+    Probabilidad<-Probabilidad+(exponente*lambda^i)/(factorial(i))
+}
+
+print("Probabilidad")
+print(Probabilidad)
+rm(list = ls())
+```
+
+## Inciso b
+
+```{r}
+
+#Se sabe que el n´umero de accidentes fatales de autom´ovil, en cierta zona de la ciudad
+#tiene una distribuci´on Poisson con un promedio de 3 accidentes por d´ıa. ¿Cu´al es la
+#probabilidad de que m´as de 10 accidentes ocurran en una semana?
+
+
+Promedio<-3
+DiasSemana<-7
+Accidenes_min<-10
+lambda <- Promedio*DiasSemana
+exponente<- exp(-lambda)
+#Distribuci'on de Poisson expresada como una suma tenemos:
+ProbOpuesta<-0
+
+for (i in 0:Accidenes_min) {
+    ProbOpuesta<-ProbOpuesta+(exponente*lambda^i)/(factorial(i))
+}
+
+Probabilidad<-1-ProbOpuesta
+
+print("Probabilidad")
+print(Probabilidad)
+rm(list = ls())
+```
+
+## Inciso c
+
+```{r}
+#En cierta localidad donde habitan 5000 personas adultas. Se selecciona al azar una
+#muestra de tama˜no 100 y se le pregunta a cada persona seleccionada cu´al es su opini´on
+#con respecto a un proyecto municipal. Si se supone que en toda la localidad la mitad
+#de las personas adultas est´an a favor del proyecto y la otra mitad est´a en contra, ¿cu´al
+#es la probabilidad de obtener una mayor´ıa de 62 ´o m´as a favor del proyecto en dicha
+#muestra?
+
+Mayoria<-62
+TamanoMuestra<-100
+Pfavor<-Mayoria/TamanoMuestra
+Pcontra<-1-Pfavor
+Probabilidad<-1
+ProbInversa<-0
+TamanoFactoria<-factorial(TamanoMuestra)
+for(i in 0:(Mayoria-1)){
+    varaux<-TamanoMuestra-i
+    ProbInversa<-ProbInversa+(TamanoFactoria/(factorial(i)*(factorial(varaux))))*(Pfavor^i)*(Pcontra^(varaux))
+}
+Probabilidad<-Probabilidad-ProbInversa
+print("Probabilidad")
+print(Probabilidad)
+rm(list=ls())
+
+```
+
+# Ejercicio 2
+
+## Inciso a
+
+```{r}
+curve(dbeta(x, shape1=1,shape2=1), lwd=3, las=1,
+ylab='densidad')
+
+
+
+curve(dbeta(x, shape1=0.25,shape2=0.25), lwd=3, las=1,
+ylab='densidad') 
+
+
+
+curve(dbeta(x, shape1=10,shape2=10), lwd=3, las=1,
+ylab='densidad')
+
+
+
+curve(dbeta(x, shape1=3,shape2=3), lwd=3, las=1,
+ylab='densidad')
+
+
+
+curve(dbeta(x, shape1=1,shape2=20), lwd=3, las=1,
+ylab='densidad')
+
+
+
+curve(dbeta(x, shape1=1.5,shape2=30), lwd=3, las=1,
+ylab='densidad')
+
+
+
+curve(dbeta(x, shape1=6,shape2=120), lwd=3, las=1,
+ylab='densidad')
+
+
+
+curve(dbeta(x, shape1=1,shape2=0.25), lwd=3, las=1,
+ylab='densidad')
+rm(list = ls())
+```
+
+## Inciso b
+
+```{r}
+curve(dbeta(x, shape1=10,shape2=10), lwd=3, las=1,ylab='densidad')
+abline(v=0.5)
+
+
+curve(dbeta(x, shape1=3,shape2=3), lwd=3, las=1, ylab='densidad')
+abline(v=0.5)
+
+
+curve(dbeta(x, shape1=1.5,shape2=30), lwd=3, las=1, ylab='densidad')
+abline(v=0.0169491525)
+
+
+curve(dbeta(x,shape1=6,shape2=120), lwd=3, las=1, ylab='densidad')
+abline(v=0.0403225806)
+
+
+curve(dbeta(x,shape1=30,shape2=1.5), lwd=3, las=1,ylab='densidad')
+abline(v=0.983050847)
+
+curve(dbeta(x,shape1=120,shape2=6), lwd=3, las=1,ylab='densidad')
+abline(v=0.959677419)
+rm(list = ls())
+```
+
+## Inciso c
+
+```{r}
+curve(dbeta(x, shape1=0.25,shape2=0.25), lwd=3, las=1,ylab='densidad') 
+abline(v=0)
+abline(v=1)
+rm(list = ls())
+```
+
+## Inciso d
+
+```{r}
+curve(dbeta(x, shape1=1,shape2=1), lwd=3, las=1, ylab='densidad')
+abline(v=0)
+rm(list = ls())
+```

@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.menu-horizontal {
+    display: block;
+    width: 100%;
+    margin: 3px 0;
+    padding: 0px 0.5em;
+    background: #eee none;
+}
+.menu-horizontal ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.menu-horizontal li {
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+.menu-horizontal {
+    padding: 0;
+    background: #fff none;
+}
+
+.menu-horizontal li {
+    margin-right: 1em;
+    text-align: center;
+}
+
+.menu-horizontal a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+}
+
+.menu-horizontal a:hover {
+    background: #ff9 none;
+    text-decoration: underline;
+}
