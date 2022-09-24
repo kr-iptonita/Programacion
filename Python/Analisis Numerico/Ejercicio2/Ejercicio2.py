@@ -1,12 +1,16 @@
 # Importacion de librerias
-from tkinter import Y
 import numpy as np
 import time
 import matplotlib.pyplot as plt
 
 # Quicksort
 
+"""
+El algoritmo está partido en dos funciones una que forma partición y el algoritmo en cuestión tal cual
+quicksort_c1 es una función intermediaria que entrega a la función quicksort los datos necesarios para funcionar por primera vez.
 
+El grupo devuelve una lista con los resultados del algoritmo
+"""
 def partition(izquierda, derecha, x):
     pivot, ptr = x[derecha], izquierda
     for i in range(izquierda, derecha):
@@ -35,6 +39,9 @@ def quicksort(I, D, x):
 
 # Burbuja
 
+"""
+A diferencia del algoritmo anteriro este algoritmo transforma directamente al vector de entrada sin necesidad de funciones de complementarias
+"""
 
 def Burbuja(x):
     n = len(x)
@@ -48,6 +55,9 @@ def Burbuja(x):
 
 # Insercion
 
+"""
+igual que el caso anterior se usa la misma definición para transformar en un grupo a la lista
+"""
 
 def Insercion(x):
     n = len(x)
@@ -64,7 +74,9 @@ def Insercion(x):
 
 # Obtención de datos por parte del usuario
 
-
+"""
+se evalua si el valor es de tipo float para el elemento num y se devuelve un valor de tipo boolean
+"""
 def esflotante(num):
     try:
         float(num)
@@ -95,11 +107,23 @@ for i in range(len(datos_brutos)):
 datos_ft = tuple(map(float, datos))
 datos_float = list(datos_ft)
 
-# el siguiente codigo se puede descomentar para usar una lista de 500 elementos de tipo FLOAT sin tener que introducirlos manualmente
+
 """ 
+El siguiente codigo se puede descomentar para usar una lista de 500 elementos de tipo FLOAT sin tener que introducirlos manualmente
+
 lista=np.random.rand(1,500)
 datos_float=lista[0]
+"""
+lista=np.random.rand(1,1000)
+datos_float=lista[0]
 
+"""
+Se tienen los datos estos para cada paso del programa se copian de la lista original
+se toma el tiempo de inicio del algoritmo
+se evalua la lista en el algoritmo
+se toma el tiempo de finalización del programa
+se calcula el tiempo de ejecución del programa
+se prosigue con el siguiente algoritmo
 """
 
 # Copiado de datos para no alterar la lista original
@@ -123,6 +147,10 @@ inicio_3 = time.time()
 c = Insercion(datos_float_c)
 c_t = time.time()-inicio_3
 
+
+"""
+Se imprime el vector ordenado
+"""
 print(a)
 print(b)
 print(c)
@@ -130,11 +158,14 @@ print(c)
 
 # Graficación
 
-n = [a_t, b_t, c_t]
+"""
+Se utilizó una grafica de barras que toma al parametro del tamaño de los datos y su tiempo de ejecución
+"""
+n=len(datos_float)
+tiempos = [a_t, b_t, c_t]
 algoritmos = ["Quicksort", "Burbuja", "Insercion"]
-plt.bar(algoritmos, n)
-plt.title(
-    "tiempos de ejecución en microsegundos para cada algoritmo en una lista de tamaño ")
+plt.bar(algoritmos, tiempos)
+plt.title("tiempos de ejecución en microsegundos para cada algoritmo en una lista de tamaño n= %d" %n)
 plt.xlabel("algoritmos")
 plt.ylabel("microsegundos")
 plt.yscale("log", base=10)
