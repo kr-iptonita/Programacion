@@ -77,11 +77,11 @@ datos = []
 datos_brutos = []
 
 lista = input(
-    "Escriba uno a uno los elementos a ordenar, use enter para añadir otro elemento y escriba 'y' para terminar")
+    "Escriba uno a uno los elementos a ordenar, use enter para añadir otro elemento y escriba 'y' para terminar ")
 while lista != 'y':
     datos_brutos.append(lista)
     lista = input(
-        "Escriba uno a uno los elementos a ordenar, use enter para añadir otro elemento y escriba 'y' para terminar")
+        "Escriba uno a uno los elementos a ordenar, use enter para añadir otro elemento y escriba 'y' para terminar ")
 
 for i in range(len(datos_brutos)):
     dato = datos_brutos[i]
