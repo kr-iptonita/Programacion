@@ -46,10 +46,9 @@ entero_lista(datos)
 # descomentar el siguiente codigo para usar una lista aleatoria de 50000 elementos enteros aleatorios
 
 
-
-datos=[]
+datos = []
 for i in range(50000):
-    datos.append(np.random.randint(1,30000))
+    datos.append(np.random.randint(1, 30000))
 
 
 inicio = time.time()
