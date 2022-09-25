@@ -1,3 +1,10 @@
+"""
+    ---------------------- EJERCICIO 4 --------------------
+    Trabajo realizado por los alumnos:
+        Juárez Torres Carlos Alberto ------------ 318013712
+        Partida Contreras Marían de los Ángeles - 421095630     
+"""
+
 # importación de librerias
 import time
 import numpy as np
