@@ -35,4 +35,3 @@ print("L:")
 print(L)
 print("U:")
 print(U)
-a=1 
