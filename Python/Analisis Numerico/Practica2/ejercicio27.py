@@ -217,8 +217,5 @@ def main():
     # 5. Calcular el condicional e imprimimos
     cond_A = norma_A*norma_Ainversa
     print("El condicional de la matriz es: ", cond_A)
-    print(U)
-    print(V)
-    print(np.matmul(Ut,V),C)
 
 main()
