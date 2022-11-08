@@ -143,7 +143,7 @@ def vector_aleatorio(n):
     C = []
 
     for i in range(n):
-        C.insert(i, random.randrange(-1, 2, 2))
+        C.insert(i, np.float64(random.randrange(-1, 2, 2)))
     C = np.array(C)
 
     return C
@@ -217,6 +217,8 @@ def main():
     # 5. Calcular el condicional e imprimimos
     cond_A = norma_A*norma_Ainversa
     print("El condicional de la matriz es: ", cond_A)
-
+    print(U)
+    print(V)
+    print(np.matmul(Ut,V),C)
 
 main()
