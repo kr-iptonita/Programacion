@@ -1,7 +1,19 @@
+"""
+Ejercicio 23.py
+
+Trabajo realizado por los alumnos:
+    Juárez Torres Carlos Alberto ------------ 318013712
+    Kano Chavira Nicolás -------------------- 315319204
+    Méndez Saucedo Abigail ------------------ 421098260
+    Partida Contreras Marían de los Ángeles - 421095630
+
+"""
+
+# Importamos las librerías
 import numpy as np
 from numpy import linalg as LA
 
-
+#Devlaración de la función de factorización
 def Householder_Q(A):
     Ai = np.copy(A)
     nRen, nCol = A.shape
@@ -24,7 +36,7 @@ def Householder_Q(A):
         Q = np.matmul(Q, q[k])
     return Q, R
 
-
+#Declaramos la función que toma a R y b y hace sustitucion hacia atras
 def sustitucion(R, b):
     n = R.shape[1]
     x = [0]*n
@@ -35,11 +47,15 @@ def sustitucion(R, b):
 
     return x
 
-
+"""
+Declaramos el problema
+"""
 matriz = np.array([[0.16, 0.10], [0.17, 0.11], [2.02, 1.29]])
 b = np.array([[0.26], [0.28], [3.31]])
 
-
+"""
+Resolución del problema
+"""
 Qt = np.transpose(Householder_Q(matriz)[0])
 print(Qt)
 R = Householder_Q(matriz)[1]
