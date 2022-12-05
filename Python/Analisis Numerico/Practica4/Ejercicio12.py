@@ -1,5 +1,10 @@
+import math
+
 def reglaFalsa(f,x0,x1,tol,max_iter = 100):
     #pedimos puntos distintos de inicio
+    def f(x):
+        f=eval(funcion)
+        return f
     if x0==x1:
         return print("Por favor ingrese puntos iniciales distintos")
     a = x0
@@ -26,4 +31,46 @@ def reglaFalsa(f,x0,x1,tol,max_iter = 100):
 
 #a)
 
-funcion=
+funcion="math.e**(x)+2**(-x)+2*math.cos(x)-6"
+
+
+x_0=1
+x_1=2
+
+tolerancia=0.00001
+
+iteraciones=10000
+
+aprox=reglaFalsa(funcion,x_0, x_1, tolerancia,  iteraciones)
+
+print(aprox)
+
+#b)
+funcion="2*x*math.cos(2*x)-(x-2)**2"
+
+
+x_0=2
+x_1=4
+
+tolerancia=0.00001
+
+iteraciones=10000
+
+aprox=reglaFalsa(funcion,x_0, x_1, tolerancia,  iteraciones)
+
+print(aprox)
+
+#c)
+funcion="math.e**(x)-3*x**(2)"
+
+
+x_0=0
+x_1=5
+
+tolerancia=0.0001
+
+iteraciones=10000
+
+aprox=reglaFalsa(funcion,x_0, x_1, tolerancia,  iteraciones)
+
+print(aprox)
