@@ -54,4 +54,8 @@ x1=(1+math.sqrt(3))/2
 x2=(1-math.sqrt(3))/2
 x3=math.sqrt(3)
 #imprimimos las aproximaciones de x1,x2,x3
-print(puntoFijo3vars(p,x1,x2,x3,10**-6))
+print("aproximaciones de los valores:")
+x1,x2,x3=puntoFijo3vars(p,x1,x2,x3,10**-6)
+print("x1: ",x1)
+print("x2: ",x2)
+print("x3: ",x3)
