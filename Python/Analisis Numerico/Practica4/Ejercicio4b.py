@@ -1,3 +1,14 @@
+"""
+    --------------------- EJERCICIO 04 --------------------
+    Trabajo realizado por los alumnos:
+        Juárez Torres Carlos Alberto ------------ 318013712
+        Kano Chavira Nicolás -------------------- 315319204
+        Méndez Saucedo Abigail ------------------ 421098260
+        Partida Contreras Marían de los Ángeles - 421095630 
+  
+"""
+
+
 def raiz_biseccion(f,a,b,tol,N):
     """
     Función que calcula la raíz de una función a través del método de
@@ -57,7 +68,7 @@ def raiz_biseccion(f,a,b,tol,N):
 
         # 7) Actualizamos al punto
         x_0 = x_1
-        
+        print(x_1)
         # 8) Actualizamos el contador
         n = n + 1
 def main():
@@ -66,16 +77,10 @@ def main():
     def f(x):
         return (x**2)-3
     """
-    # Solicitar al usuario los datos
-    a = float(input("Ingresa el límite inferior del intervalo inicial [a,b]: "))
-    b = float(input("Ingresa el límite superior del intervalo inicial [a,b]: "))
-    tol = float(input("Ingresar la tolerancia de error: "))
-    N = int(input("Ingresa el número máximo de iteraciones a hacer: "))
-
     # Calculamos la raíz
     r = raiz_biseccion(f,a,b,tol,N)
     """
     # ----------------------- TEST -------------------------
-    r = raiz_biseccion(f,1,2,0.0001,1000)
+    r = raiz_biseccion(f,1,2,0.0001,5)
 
 main()

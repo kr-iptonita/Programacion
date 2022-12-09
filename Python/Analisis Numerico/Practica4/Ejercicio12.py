@@ -1,5 +1,16 @@
+"""
+    --------------------- EJERCICIO 12 --------------------
+    Trabajo realizado por los alumnos:
+        Juárez Torres Carlos Alberto ------------ 318013712
+        Kano Chavira Nicolás -------------------- 315319204
+        Méndez Saucedo Abigail ------------------ 421098260
+        Partida Contreras Marían de los Ángeles - 421095630 
+  
+"""
+#importación de librerias
 import math
 
+#definición del algoritmo
 def reglaFalsa(f,x0,x1,tol,max_iter = 100):
     #pedimos puntos distintos de inicio
     def f(x):
@@ -29,7 +40,11 @@ def reglaFalsa(f,x0,x1,tol,max_iter = 100):
             break
     return c
 
-#a)
+
+#Evaluación de incisos:
+
+
+    #a)
 
 funcion="math.e**(x)+2**(-x)+2*math.cos(x)-6"
 
@@ -45,7 +60,7 @@ aprox=reglaFalsa(funcion,x_0, x_1, tolerancia,  iteraciones)
 
 print(aprox)
 
-#b)
+    #b)
 funcion="2*x*math.cos(2*x)-(x-2)**2"
 
 
@@ -60,7 +75,7 @@ aprox=reglaFalsa(funcion,x_0, x_1, tolerancia,  iteraciones)
 
 print(aprox)
 
-#c)
+    #c)
 funcion="math.e**(x)-3*x**(2)"
 
 
