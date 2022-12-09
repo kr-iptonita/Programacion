@@ -67,8 +67,13 @@ def f2(x1, x2):
     return x1+x2*(x2*(x2+1)+14)-29
 
 
+
+
 ap1 = np.array([15, -2])
 sol1 = Newton(ap1)
+
+#Impresión de resultados.
+
 print('Aproximacion de la solucion')
 print(sol1)
 print('Aproximacion evaluada en f1')
