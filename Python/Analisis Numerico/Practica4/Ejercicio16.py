@@ -41,7 +41,7 @@ def Newton(aprox):
   h=0.01
   n=0
 
-  while n<100:
+  while n<3:
     J= np.zeros([2,2])
     J= Jacobiana(f1,f2,aprox,h);
     fx=np.array(aprox)
