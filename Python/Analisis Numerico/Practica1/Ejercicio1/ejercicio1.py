@@ -97,7 +97,7 @@ def sumar_matrices_2(A, B):
         #Se recorren las columnas con el índice j
         for j in range(len(A[0])):
             #Se accede directamente a las correspoindientes entradas
-            C[i][j] = A[i][j]+B[i][j]
+            C[i][j] = A[i][j] + B[i][j]
     return C
 
 def sumar_matrices_1(A, B):
@@ -140,7 +140,7 @@ def sumar_matrices_1(A, B):
 
 # --------- Test:
 A = [[1,2], [2,1]]
-B = [[1,1], [1,1]]
+B = [[1 ,1], [1, 1]]
 
 print(A, "+", B, "=",sumar_matrices_1(A, B))
 print(A, "+", B, "=",sumar_matrices_2(A, B))
