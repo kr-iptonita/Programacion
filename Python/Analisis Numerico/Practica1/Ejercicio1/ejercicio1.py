@@ -179,6 +179,7 @@ for matriz in lista_de_matrices:
     tiempos_3.append(fin_3-inicio_3)
 
 #Graficamos nuestros resultados
+plt.style.use('dark_background')
 plt.plot(n_matriz, tiempos_1, label = '1')
 plt.plot(n_matriz, tiempos_2, label = '2')
 plt.plot(n_matriz, tiempos_3, label = '3')
