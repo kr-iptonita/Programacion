@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{babel}
+\title{README.txt}
+\author{kr\_ipton\\
+Juárez Torres Carlos Alberto}
+\date{Febrero 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{README}
+El código proporcionado genera una cuadrícula de adoquines mediante la técnica de la recursión.
+La cuadrícula se crea a partir de una matriz de tamaño especificado por el usuario, se elige aleatoriamente una posición en la matriz y se asigna el valor de $-1$ a esa posición,
+que será el cuadro especial. Luego, se llama a la función \textsc{recursiva\_ adoquín }
+para rellenar la cuadrícula con números aleatorios que se asignan a cada posición en la matriz. Finalmente, se imprime la cuadrícula en la terminal y se define una lista de colores aleatorios y
+un diccionario que asocia cada número de la cuadrícula con un color.\\
+
+La función \textsc{recursiva\_ adoquín } es la función principal del código y es responsable de dividir la cuadrícula en secciones más pequeñas y
+colocar bloques de adoquines en las secciones adecuadas. La función toma tres argumentos: n, que es el tamaño de la sección actual, x e y,
+que son las coordenadas de la esquina superior izquierda de la sección actual en la matriz. La función utiliza una variable global llamada "centro"
+para asignar un número único a cada bloque de adoquín que se coloca.\\
+
+La función \textsc{recursiva\_ adoquin } comienza verificando si la sección actual es lo suficientemente pequeña como para colocar los bloques de adoquines directamente en la matriz.
+Si es así, la función coloca los bloques en la matriz y devuelve 0.\\
+
+Si la sección actual no es lo suficientemente pequeña, la función busca la posición del bloque especial en la sección actual.
+Si no hay un bloque especial en la sección actual, se divide la sección en cuatro secciones más pequeñas y se llama recursivamente a la función para cada sección.
+Si hay un bloque especial en la sección actual, se coloca un bloque de adoquín en la sección adecuada y se llama recursivamente a la función para cada sección que no contiene el bloque especial.\\
+
+La colocación de los bloques de adoquines se realiza en la función colocación. La función toma seis argumentos: \textsc{x\_1, y\_1, x\_2, y\_2, x\_3, y\_3 },
+que son las coordenadas de las tres posiciones en la matriz donde se colocarán los bloques de adoquines. La función utiliza la variable global "centro"
+para asignar el mismo número a los tres bloques de adoquines.\\
+
+El código también define una función \textsc{try-except } que solicita al usuario que ingrese un valor entero para el tamaño de la cuadrícula.
+Si el usuario ingresa un valor que no es un número entero, el programa termina con un mensaje de error. Si el usuario ingresa un valor entero,
+el programa continúa y crea una matriz de ceros con el tamaño especificado de la cuadrícula.\\
+
+En general, el código utiliza técnicas de programación recursiva y aleatoriedad para generar una cuadrícula de adoquines.
+
+\end{document}
