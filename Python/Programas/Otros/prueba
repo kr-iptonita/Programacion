@@ -1,0 +1,17 @@
+import math
+import numpy as np
+
+def gen_serie(n):
+    serie = [math.sqrt(2)]
+    for i in range(2, n+1):
+        a = math.sqrt(2 + serie[i-2])
+        serie.append(a)
+    return serie
+
+
+n = int(input("Escriba el número de iteraciones a calcular: "))
+
+temporal=np.prod(gen_serie(n))/(2**n)
+print(temporal)
+
+print("Aproximación de pi: ", 2/temporal)
