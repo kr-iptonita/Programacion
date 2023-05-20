@@ -1,0 +1,50 @@
+class Grafo:
+    def __init__(self, n):
+        self.n = n
+        self.grafo = [[] for _ in range(n)]
+        self.visitado = [False] * n
+
+    def agregar_arista(self, u, v):
+        self.grafo[u].append(v)
+        self.grafo[v].append(u)
+
+    def dfs(self, v, componente):
+        self.visitado[v] = True
+        componente.append(v)
+        for vecino in self.grafo[v]:
+            if not self.visitado[vecino]:
+                self.dfs(vecino, componente)
+
+    def componentes_conexas(self):
+        componentes = []
+        for v in range(self.n):
+            if not self.visitado[v]:
+                componente = []
+                self.dfs(v, componente)
+                componentes.append(componente)
+        return componentes
+
+
+def imprimir_componentes_conexas(componentes):
+    num_componentes = len(componentes)
+    print(f"Número de componentes conexas: {num_componentes}")
+    for i, componente in enumerate(componentes, start=1):
+        print(f"Componente {i}:")
+        for v in componente:
+            print(f"Vértice: {v}")
+        for u in componente:
+            for v in grafo.grafo[u]:
+                if v in componente and u < v:
+                    print(f"Arista: {u}-{v}")
+
+
+# Ejemplo de uso
+grafo = Grafo(7)
+grafo.agregar_arista(0, 1)
+grafo.agregar_arista(0, 2)
+grafo.agregar_arista(1, 2)
+grafo.agregar_arista(3, 4)
+grafo.agregar_arista(5, 6)
+
+componentes_conexas = grafo.componentes_conexas()
+imprimir_componentes_conexas(componentes_conexas)
