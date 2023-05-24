@@ -1,5 +1,8 @@
-
 def DFS(v, visitados, grafo, componente):
+    """
+    Realiza una búsqueda en profundidad (DFS) a partir de un vértice dado.
+    Marca los vértices visitados, agrega los vértices a la componente conexa y explora los vecinos no visitados.
+    """
     visitados[v] = True
     componente.append(v)
     
@@ -7,7 +10,13 @@ def DFS(v, visitados, grafo, componente):
         if not visitados[vecino]:
             DFS(vecino, visitados, grafo, componente)
 
+
 def obtener_componentes_conexas(grafo, n):
+    """
+    Obtiene las componentes conexas de un grafo dado.
+    Utiliza una búsqueda en profundidad (DFS) para encontrar las componentes.
+    Devuelve una lista de listas, donde cada sublista representa una componente conexa.
+    """
     visitados = [False] * n
     componentes_conexas = []
     
@@ -18,6 +27,7 @@ def obtener_componentes_conexas(grafo, n):
             componentes_conexas.append(componente)
     
     return componentes_conexas
+
 
 # Ejemplo de uso
 
@@ -53,3 +63,4 @@ for i, componente in enumerate(componentes_conexas):
         v1, v2, peso = arista
         if v1-1 in componente and v2-1 in componente:
             print("Arista:", (v1, v2, peso))
+
