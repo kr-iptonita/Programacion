@@ -1,6 +1,7 @@
 """
 Este programa fue realizado por:
-    Juárez Torres Carlos Alberto
+    Juárez Torres Karla Romina
+
 """
 #importacion de librerias
 import numpy as np
