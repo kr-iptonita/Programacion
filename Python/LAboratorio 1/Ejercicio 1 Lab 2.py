@@ -3,7 +3,7 @@ Tarea # : Laboratorio 1.
 
 Integrantes ( orden alfabetico ):
 
-Juárez Torres Carlos Alberto ( JTCA )
+Juárez Torres Karla Romina ( JTKR )
 Vega González Pedro Rubén ( VGPR )
 
  Nombre del programa : calculos .py

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 "Laboratorio 2: Optimizacion lineal"
-"integrantes (Ju ́arez Torres Carlos Alberto, Vega Gonzalez Pedro Ruben )"
-"Juárez Torres Carlos Alberto (JTCA)"
+"integrantes (Ju ́arez Torres CKarla Romina, Vega Gonzalez Pedro Ruben )"
+"Juárez Torres Karla Romina (JTKR)"
 "Vega Gonzalez Pedro Ruben (VGPR)"
 
 "Nompbre del programa : minimizacioon.py"

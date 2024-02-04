@@ -2,7 +2,7 @@
 
 "Laboratorio 2: Optimizacion lineal"
 "integrantes (Ju ́arez Torres Carlos Alberto, Vega Gonzalez Pedro Ruben )"
-"Juárez Torres Carlos Alberto (JTCA)"
+"Juárez Torres Karla Romina (JTKR)"
 "Vega Gonzalez Pedro Ruben (VGPR)"
 
 "Nompbre del programa : 280.py"

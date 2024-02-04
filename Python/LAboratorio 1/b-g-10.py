@@ -1,7 +1,7 @@
 
 #Laboratorio: Laboratorio 1
 #Integrantes:
-# Juarez Torres Carlos Alberto (JTCA)
+# Juarez Torres Carlos Alberto (JTKR)
 # Vega González Pedro Rubén    (VGPR)
 
 #Nombre del programa: Beta-galactosodasa

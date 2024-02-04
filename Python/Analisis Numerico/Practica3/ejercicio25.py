@@ -2,7 +2,7 @@
 Ejercicio 25.py
 
 Trabajo realizado por los alumnos:
-    Juárez Torres Carlos Alberto ------------ 318013712
+    Juárez Torres Karla Romina ------------ 318013712
     Kano Chavira Nicolás -------------------- 315319204
     Méndez Saucedo Abigail ------------------ 421098260
     Partida Contreras Marían de los Ángeles - 421095630
