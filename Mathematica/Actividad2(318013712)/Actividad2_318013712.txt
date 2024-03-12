@@ -1,0 +1,91 @@
+Actividad 2
+Taller de modelación 2
+Nombre social : Karla Romina Juárez Torres
+Nombre legal : Carlos Alberto Juárez Torres
+Número de cuenta: 318013712
+Profesor: Pascual Di Bella Nava
+Generación de grafica de la restricción
+In[1]:= rt=Solve[20*y^2+4*x^2-45==0,y]
+Out[1]= {{y->-(Sqrt[45-4 x^2]/(2 Sqrt[5]))},{y->Sqrt[45-4 x^2]/(2 Sqrt[5])}}
+In[2]:= Plot[{rt[[1,1,2]],rt[[2,1,2]]},{x,-3.5,3.5},AspectRatio->All]
+Out[2]= 
+Movimiento  de la partícula sobre la restricción
+In[3]:= sol=With[{g=9.81},NDSolve[{x''[t]==(x[t]*((5*g*y[t])-(x'[t]^2+5*y'[t]^2)))/(x[t]^2 + 25*y[t]^2),
+y''[t]==((5*y[t]((5*g y[t])-(x'[t]^2 + 5*y'[t]^2)))/(x[t]^2 + 25*y[t]^2))-g,x'[0]==0,y'[0]==0,x[0]==0.1,y[0]==Sqrt[(45-4*0.001^2)/20]},{x,y},{t,0,5}]];
+
+ParametricPlot[{x[t], y[t]}/. sol,{t,0,5},PlotRange->All]
+
+Out[4]= 
+Cálculo  del tiempo para llegar al suelo y su posición en x. 
+In[5]:= {sol1,pt1}=With[{g=9.8},Reap@NDSolve[{x''[t]==(x[t]*((5*g*y[t])-(x'[t]^2+5*y'[t]^2)))/(x[t]^2 + 25*y[t]^2),
+y''[t]==((5*y[t]((5*g y[t])-(x'[t]^2 + 5*y'[t]^2)))/(x[t]^2 + 25*y[t]^2))-g,x'[0]==0,y'[0]==0,x[0]==0.1,y[0]==Sqrt[45/20],WhenEvent[y[t]==0,Sow[{t,x[t]},1]]},{x,y},{t,0,5}]];
+pt1
+
+Out[6]= {{{3.75843,3.35559},{4.88567,-3.35559}}}
+In[7]:= a=ParametricPlot[{x[t],y[t]}/.sol1,{t,0,pt1[[1,1,1]]},PlotStyle->{Red,Thick},PlotRange->All]
+Out[7]= 
+Visualización de la condición para anular la restricción
+In[8]:= Plot[{(4x'[t] ^2+20y'[t]^2)/.sol1,9.8y[t]/.sol},{t,0,pt1[[1,1,1]]}]
+Out[8]= 
+Cálculo de la trayectoria de la partícula hasta el punto donde se anula la restricción
+In[9]:= {sol1,pt2}=With[{g=9.8},Reap@NDSolve[{x''[t]==(x[t]*((5*g*y[t])-(x'[t]^2+5*y'[t]^2)))/(x[t]^2 + 25*y[t]^2),
+y''[t]==((5*y[t]((5*g y[t])-(x'[t]^2 + 5*y'[t]^2)))/(x[t]^2 + 25*y[t]^2))-g,x'[0]==0,y'[0]==0,x[0]==0.1,y[0]==Sqrt[(45-4*0.001^2)/20],WhenEvent[g*y[t]==x'[t]^2+y'[t]^2,Sow[{t,x[t],y[t],x'[t],y'[t]},1]]},{x,y},{t,0,pt1[[1,1,1]]}]];
+pt2
+Out[10]= {{{3.42229,2.502,1.,2.79955,-1.4009}}}
+In[11]:= b=ParametricPlot[{x[t],y[t]}/.sol1,{t,0,pt2[[1,1,1]]},PlotStyle->{Blue,Thick},PlotRange->{0,3}]
+Out[11]= 
+Cálculo de la trayectoria de la partícula después de que la restricción se anuló
+In[12]:= 
+{sol3,pt3}=With[{g=9.8},Reap@NDSolve[{x''[t]==0,y''[t]==-g,x'[pt2[[1,1,1]]]==pt2[[1,1,4]],y'[pt2[[1,1,1]]]==pt2[[1,1,5]],x[pt2[[1,1,1]]]==pt2[[1,1,2]],y[pt2[[1,1,1]]]==pt2[[1,1,3]],WhenEvent[y[t]==0,Sow[{t,x[t]},1]]},{x,y},{t,pt2[[1,1,1]],4}]];
+pt3
+Out[13]= {{{3.75317,3.42832}}}
+In[14]:= c=ParametricPlot[{x[t],y[t]}/.sol3,{t,pt2[[1,1,1]],pt3[[1,1,1]]},PlotStyle->{Green,Thick},PlotRange->All,AspectRatio->Full]
+Out[14]= 
+In[15]:= 
+In[16]:= 
+In[17]:= 
+Comparación de las diferentes trayectorias de la partícula. 
+In[18]:= Show[a,b,c,PlotRange->All,Epilog->{{Black,PointSize[0.02],Point[{pt2[[1,1,2]],pt2[[1,1,3]]}]},{Black,Dashed,Line[{{pt2[[1,1,2]],30},{pt2[[1,1,2]],40}}]}}]
+Out[18]= 
+In[19]:= 
+
+Diferencia  entre los puntos de contacto con el suelo de las trayectorias
+In[20]:= pt1[[1,1,2]]
+pt3[[1,1,2]]
+Out[20]= 3.35559
+Out[21]= 3.42832
+Diferencias  entre los tiempos de viaje de la partícula para las diferentes trayectorias
+In[22]:= pt1[[1,1,1]]
+pt3[[1,1,1]]
+Out[22]= 3.75843
+Out[23]= 3.75317
+Acercamiento  de las diferentes trayectorias.
+In[24]:= d=ParametricPlot[{x[t],y[t]}/.sol1,{t,pt2[[1,1,1]],pt1[[1,1,1]]},PlotStyle->{Red,Thick},PlotRange->{0,Automatic}];
+Show[c,d]
+Out[25]= 
+Comparación de las velocidades en x y y. En rojo donde la restricción no se anula nunca, en verde sin la restricción y en azul con restricción.
+In[26]:= vx1=Plot[{x'[t]/.sol1},{t,0,pt1[[1,1,1]]},PlotStyle->{Red,Thick},Epilog->{{Black,Dashed,Line[{{pt2[[1,1,1]],-30},{pt2[[1,1,1]],30}}]}}]
+vx2=Plot[{x'[t]/.sol1,x'[t]/.sol3},{t,pt2[[1,1,1]],pt1[[1,1,1]]},PlotStyle->{{Blue,Thick},{Green,Thick}},PlotRange->All]
+vy1=Plot[{y'[t]/.sol1},{t,0,pt1[[1,1,1]]},PlotStyle->{Red,Thick},Epilog->{{Black,Dashed,Line[{{pt2[[1,1,1]],-30},{pt2[[1,1,1]],30}}]}}]
+vy2=Plot[{y'[t]/.sol1,y'[t]/.sol3},{t,pt2[[1,1,1]],pt1[[1,1,1]]},PlotStyle->{{Blue,Thick},{Green,Thick}}]
+Out[26]= 
+Out[27]= 
+Out[28]= 
+Out[29]= 
+In[30]:= Show[vx1,vx2,Epilog->{{Black,Dashed,Line[{{pt2[[1,1,1]],-30},{pt2[[1,1,1]],30}}]}}]
+Show[vy1,vy2,Epilog->{{Black,Dashed,Line[{{pt2[[1,1,1]],-30},{pt2[[1,1,1]],30}}]}}]
+Out[30]= 
+Out[31]= 
+Comparación de las aceleraciones en x y y. En rojo donde la restricción no se anula nunca, en verde sin la restricción y en azul con restricción.
+In[32]:= ax1=Plot[{x''[t]/.sol1},{t,0,pt1[[1,1,1]]},PlotStyle->{Red,Thick},Epilog->{{Black,Dashed,Line[{{pt2[[1,1,1]],-30},{pt2[[1,1,1]],30}}]}},PlotRange->All]
+ax2=Plot[{x''[t]/.sol1,x''[t]/.sol3},{t,pt2[[1,1,1]],pt1[[1,1,1]]},PlotStyle->{{Blue,Thick},{Green,Thick}}]
+ay1=Plot[{y''[t]/.sol1},{t,0,pt1[[1,1,1]]},PlotStyle->{Red,Thick},Epilog->{{Black,Dashed,Line[{{0,-9.8},{pt1[[1,1,1]],-9.8}}]}}]
+ay2=Plot[{y''[t]/.sol1,y''[t]/.sol3},{t,pt2[[1,1,1]]+0.001,pt1[[1,1,1]]},PlotStyle->{{Blue,Thick},{Green,Thick}}]
+Out[32]= 
+Out[33]= 
+Out[34]= 
+Out[35]= 
+In[36]:= Show[ax1,ax2,Epilog->{{Black,Dashed,Line[{{pt2[[1,1,1]],-30},{pt2[[1,1,1]],30}}]}}]
+Out[36]= 
+In[37]:= Show[ay1,ay2,Epilog->{{Black,Dashed,Line[{{pt2[[1,1,1]],-30},{pt2[[1,1,1]],30}}]}}]
+Out[37]= 
